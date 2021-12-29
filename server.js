@@ -13,7 +13,8 @@ let corsOptions = {
         "http://localhost:8080",
         "http://127.0.0.1:8080",
         "http://127.0.0.1:8081",
-        "http://192.168.1.5:8080"
+        "http://192.168.1.5:8080",
+        "https://push-backend-nodejs.herokuapp.com"
     ],
     default: "http://localhost:4200",
 };
