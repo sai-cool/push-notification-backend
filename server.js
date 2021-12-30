@@ -1,5 +1,6 @@
 const express = require("express"); // --- Express is for building the Rest apis
 const bodyParser = require("body-parser"); // --- helps to parse the request and create the req.body object
+const cors =  require('cors');
 
 const app = express();
 
