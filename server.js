@@ -8,34 +8,6 @@ const db = require("./models");
 const dbConfig = require("./config/db.config");
 
 
-let corsOptions = {
-    origin: [
-        "http://localhost:4200",
-        "http://localhost:4300",
-        "http://localhost:8080",
-        "http://127.0.0.1:8080",
-        "http://127.0.0.1:8081",
-        "http://192.168.1.5:8080",
-        "https://push-backend-nodejs.herokuapp.com",
-        "https://push-client-angular.herokuapp.com/"
-    ],
-    default: "http://localhost:4200",
-};
-
-// app.all("*", function (req, res, next) {
-//     var origin =
-//         corsOptions.origin.indexOf(req.header("origin")) > -1 ?
-//         req.headers.origin :
-//         corsOptions.default;
-//         console.log(origin);
-//     res.header("Access-Control-Allow-Origin", '*');
-//     res.header(
-//         "Access-Control-Allow-Headers",
-//         "Origin, Content-Type, Accept"
-//     );
-//     next();
-// });
-
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
@@ -44,16 +16,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', '*');
-//     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-//     res.setHeader('Access-Control-Allow-Credentials', true);
-//     next();
-//  });
-
- app.use(cors());
-// app.options('*', cors());
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.json({
