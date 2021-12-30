@@ -26,7 +26,7 @@ app.all("*", function (req, res, next) {
         req.headers.origin :
         corsOptions.default;
         console.log(origin);
-    res.header("Access-Control-Allow-Origin", origin);
+    res.header("Access-Control-Allow-Origin", '*');
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, Content-Type, Accept"
