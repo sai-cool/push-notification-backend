@@ -6,6 +6,8 @@ const app = express();
 const db = require("./models");
 const dbConfig = require("./config/db.config");
 
+app.use(cors());
+app.options('*', cors());
 let corsOptions = {
     origin: [
         "http://localhost:4200",
@@ -20,19 +22,19 @@ let corsOptions = {
     default: "http://localhost:4200",
 };
 
-app.all("*", function (req, res, next) {
-    var origin =
-        corsOptions.origin.indexOf(req.header("origin")) > -1 ?
-        req.headers.origin :
-        corsOptions.default;
-        console.log(origin);
-    res.header("Access-Control-Allow-Origin", '*');
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, Content-Type, Accept"
-    );
-    next();
-});
+// app.all("*", function (req, res, next) {
+//     var origin =
+//         corsOptions.origin.indexOf(req.header("origin")) > -1 ?
+//         req.headers.origin :
+//         corsOptions.default;
+//         console.log(origin);
+//     res.header("Access-Control-Allow-Origin", '*');
+//     res.header(
+//         "Access-Control-Allow-Headers",
+//         "Origin, Content-Type, Accept"
+//     );
+//     next();
+// });
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
