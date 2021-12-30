@@ -6,6 +6,7 @@ const webPush = require("web-push");
 const keys = require("../config/keys");
 
 exports.createSubscribers = (req, res) => {
+  console.log(req, res);
   const subscribe = new Subscribes({
     userId: req.body.userId,
     subscriprion : req.body.subscriprion
