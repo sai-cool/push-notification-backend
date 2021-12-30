@@ -25,10 +25,11 @@ app.all("*", function (req, res, next) {
         corsOptions.origin.indexOf(req.header("origin")) > -1 ?
         req.headers.origin :
         corsOptions.default;
+        console.log(origin);
     res.header("Access-Control-Allow-Origin", origin);
     res.header(
         "Access-Control-Allow-Headers",
-        "Origin, Authorization, X-Requested-With, Content-Type, Accept"
+        "Origin, Content-Type, Accept"
     );
     next();
 });
